@@ -1,0 +1,17 @@
+{
+    "name": "mail/mails",
+    "autoload": {
+        "psr-4": {
+            "Mail\\Mails\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "ahmed farooq",
+            "email": "ahmed.farooq@360synergytech.com"
+        }
+    ],
+    "require": {
+        "phpmailer/phpmailer": "^6.8"
+    }
+}
