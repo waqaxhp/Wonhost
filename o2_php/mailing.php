@@ -59,7 +59,7 @@ function sendEmail($email, $message)
 
 // Check if the request method is POST
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-
+    die("Hello");
     // PHP Post Request receive
     $email = $_POST['email'];
     $message = $_POST['message'];
