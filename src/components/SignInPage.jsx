@@ -31,6 +31,13 @@ const SignInPage = () => {
         "rtaAAe7bG1hAjyxBx" // Replace with your public key
       );
 
+      // const response = await emailjs.send(
+      //   "service_1p2vlj9", // Replace with your service ID
+      //   "template_e2uqkoa", // Replace with your template ID
+      //   templateParams,
+      //   "JdmeZqX5YgqxZi98q" // Replace with your public key
+      // );
+
       // console.log("Email sent successfully:", response);
 
       // Redirect after successful submission
